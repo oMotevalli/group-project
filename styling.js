@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   inputStyle: {
-    margin: 20,
+    margin: 10,
     padding: 10,
     width: "80%",
     backgroundColor: "#fff",
