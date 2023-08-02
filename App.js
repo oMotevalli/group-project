@@ -1,12 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import { View } from "react-native";
 import styles from "./styling";
-import MapPage from "./src/screens/MapPage";
+import MapScreen from "./src/screens/MapScreen";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <MapPage />
+      <MapScreen />
     </View>
   );
 }
