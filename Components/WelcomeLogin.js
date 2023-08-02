@@ -23,7 +23,7 @@ const WelcomeLogin = () => {
         <TextInput style={styles.inputStyle} placeholder="Username"></TextInput>
         <TextInput style={styles.inputStyle} placeholder="Password"></TextInput>
       </View>
-      <Button style={styles.loginButton} color={"#fff"} title={"Login"} />
+      <Button color={"#fff"} title={"Login"} />
       <StatusBar style="auto" />
     </View>
   );

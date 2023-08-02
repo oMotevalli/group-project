@@ -30,9 +30,6 @@ const styles = StyleSheet.create({
     width: "80%",
     backgroundColor: "#fff",
   },
-  loginButton: {
-    backgroundColor: "#a2d2ff",
-  },
 });
 
 export default styles;
