@@ -7,10 +7,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  textStyle: {
-    fontSize: 50,
+  headerStyle: {
+    fontSize: 60,
     color: "#fff",
     fontFamily: "PinkyStyle",
+  },
+  textStyle: {
+    color: "#fff",
+    fontFamily: "helvetica",
+    fontSize: 24,
   },
   inputStyle: {
     margin: 20,
