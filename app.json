@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fda8f7ab-0fdd-408a-8066-50def6443837"
+      }
+    },
+    "owner": "whitehawks"
   }
 }
