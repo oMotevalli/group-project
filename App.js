@@ -5,16 +5,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.textStyle}>Rendezvous</Text>
-      <TextInput
-        style={styles.inputStyle}
-        placeholder="Email"
-        keyboardType="email-address"
-      ></TextInput>
-      <TextInput
-        style={styles.inputStyle}
-        placeholder="Password"
-        secureTextEntry={true}
-      ></TextInput>
+      <TextInput style={styles.inputStyle} placeholder="Username"></TextInput>
+      <TextInput style={styles.inputStyle} placeholder="Password"></TextInput>
       <Button color={"#573295"} title={"Login"} />
       <StatusBar style="auto" />
     </View>
@@ -31,7 +23,7 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 50,
     color: "#fff",
-    fontFamily: "Montserrat",
+    fontFamily: "monospace",
   },
   inputStyle: {
     margin: 20,
