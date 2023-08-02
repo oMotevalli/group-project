@@ -5,8 +5,16 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.textStyle}>Rendezvous</Text>
-      <TextInput style={styles.inputStyle} placeholder="Username"></TextInput>
-      <TextInput style={styles.inputStyle} placeholder="Password"></TextInput>
+      <TextInput
+        style={styles.inputStyle}
+        placeholder="Email"
+        keyboardType="email-address"
+      ></TextInput>
+      <TextInput
+        style={styles.inputStyle}
+        placeholder="Password"
+        secureTextEntry={true}
+      ></TextInput>
       <Button color={"#573295"} title={"Login"} />
       <StatusBar style="auto" />
     </View>
