@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   textStyle: {
     color: "#fff",
     fontFamily: "helvetica",
-    fontSize: 24,
+    fontSize: 14,
   },
   inputStyle: {
     margin: 20,
