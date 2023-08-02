@@ -1,13 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 import Header from "./src/components/Header";
-import SignUpScreen from "./src/Screens/SignUpScreen";
-
+import SignInScreen from "./src/Screens/SignInScreen";
+import CreateAccountScreen from "./src/Screens/CreateAccountScreen";
 export default function App() {
   return (
     <View style={styles.appContainer}>
       <Header />
-      <SignUpScreen />
+      {/* <SignInScreen /> */}
+      <CreateAccountScreen />
     </View>
   );
 }
