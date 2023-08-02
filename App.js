@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 50,
     color: "#fff",
-    fontFamily: "monospace",
+    fontFamily: "Proxima Nova Bold",
   },
   inputStyle: {
     margin: 20,
