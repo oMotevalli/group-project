@@ -1,7 +1,8 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import { Text, View, TextInput, Button } from "react-native";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
+import styles from "./styling";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -22,23 +23,3 @@ export default function App() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#ffafcc",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  textStyle: {
-    fontSize: 50,
-    color: "#fff",
-    fontFamily: "PinkyStyle",
-  },
-  inputStyle: {
-    margin: 20,
-    padding: 10,
-    width: "80%",
-    backgroundColor: "#fff",
-  },
-});
