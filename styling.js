@@ -18,9 +18,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   inputStyle: {
-    margin: 10,
+    margin: 20,
     padding: 10,
-    width: "80%",
+    width: "200%",
     backgroundColor: "#fff",
   },
 });
