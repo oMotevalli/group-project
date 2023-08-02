@@ -1,4 +1,4 @@
-import styles from "./styling";
+import styles from "../styling";
 import { Text, View, TextInput, Button } from "react-native";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
