@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import styles from "../styling";
-import { Text, View, TextInput, Button } from "react-native";
+import { Text, View, TextInput, Button, TouchableOpacity } from "react-native";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 
@@ -23,7 +23,12 @@ const WelcomeLogin = () => {
         <TextInput style={styles.inputStyle} placeholder="Username"></TextInput>
         <TextInput style={styles.inputStyle} placeholder="Password"></TextInput>
       </View>
-      <Button color={"#fff"} title={"Login"} />
+      <View style={styles.loginButtonContainer}>
+        <TouchableOpacity style={styles.loginButton}>
+          <Text style={styles.loginButtonText}>Login</Text>
+        </TouchableOpacity>
+      </View>
+      <Text style={styles.noAccountText}>Don't have an account?</Text>
       <StatusBar style="auto" />
     </View>
   );

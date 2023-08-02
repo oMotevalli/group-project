@@ -30,6 +30,29 @@ const styles = StyleSheet.create({
     width: "80%",
     backgroundColor: "#fff",
   },
+  loginButtonContainer: {
+    alignItems: "center",
+  },
+  loginButton: {
+    elevation: 8,
+    padding: 8,
+    backgroundColor: "#a2d2ff",
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#fff",
+    width: "30%",
+  },
+  loginButtonText: {
+    textAlign: "center",
+    color: "#fff",
+    fontWeight: "bold",
+  },
+  noAccountText: {
+    color: "#fff",
+    textAlign: "center",
+    padding: 10,
+    fontSize: 12,
+  },
 });
 
 export default styles;
