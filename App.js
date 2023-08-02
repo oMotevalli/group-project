@@ -1,7 +1,17 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import { useFonts } from "expo-font";
+import AppLoading from "expo-app-loading";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    PinkyStyle: require("./assets/fonts/PinkyStyle.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.textStyle}>Rendezvous</Text>
@@ -23,7 +33,7 @@ const styles = StyleSheet.create({
   textStyle: {
     fontSize: 50,
     color: "#fff",
-    fontFamily: "monospace",
+    fontFamily: "PinkyStyle",
   },
   inputStyle: {
     margin: 20,
