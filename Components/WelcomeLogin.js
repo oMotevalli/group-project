@@ -5,7 +5,7 @@ import AppLoading from "expo-app-loading";
 
 const WelcomeLogin = () => {
   const [fontsLoaded] = useFonts({
-    PinkyStyle: require("./assets/fonts/PinkyStyle.ttf"),
+    PinkyStyle: require("../assets/fonts/PinkyStyle.ttf"),
   });
 
   if (!fontsLoaded) {
