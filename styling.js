@@ -17,10 +17,13 @@ const styles = StyleSheet.create({
     fontFamily: "helvetica",
     fontSize: 14,
   },
+  inputContainer: {
+    flex: 1,
+  },
   inputStyle: {
     margin: 20,
     padding: 10,
-    width: "200%",
+    width: "80%",
     backgroundColor: "#fff",
   },
 });
