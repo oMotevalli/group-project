@@ -4,27 +4,34 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#ffafcc",
-    alignItems: "center",
     justifyContent: "center",
+    textAlign: "center",
   },
   headerStyle: {
     fontSize: 60,
     color: "#fff",
     fontFamily: "PinkyStyle",
+    textAlign: "center",
   },
   textStyle: {
     color: "#fff",
     fontFamily: "helvetica",
     fontSize: 14,
+    textAlign: "center",
   },
   inputContainer: {
-    flex: 1,
+    flex: 0,
+    alignItems: "center",
+    margin: 15,
   },
   inputStyle: {
-    margin: 20,
+    margin: 10,
     padding: 10,
     width: "80%",
     backgroundColor: "#fff",
+  },
+  loginButton: {
+    backgroundColor: "#a2d2ff",
   },
 });
 

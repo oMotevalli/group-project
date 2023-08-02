@@ -3,7 +3,6 @@ import styles from "../styling";
 import { Text, View, TextInput, Button } from "react-native";
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
-import { useState } from "react";
 
 const WelcomeLogin = () => {
   const [fontsLoaded] = useFonts({
@@ -24,7 +23,7 @@ const WelcomeLogin = () => {
         <TextInput style={styles.inputStyle} placeholder="Username"></TextInput>
         <TextInput style={styles.inputStyle} placeholder="Password"></TextInput>
       </View>
-      <Button color={"#573295"} title={"Login"} />
+      <Button style={styles.loginButton} color={"#fff"} title={"Login"} />
       <StatusBar style="auto" />
     </View>
   );
