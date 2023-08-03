@@ -1,6 +1,6 @@
 // import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import Home from "./Home";
+import Home from "./AllEvents";
 import Search from "./Search";
 import Profile from "./Profile";
 import Favourites from "./Favourites";
