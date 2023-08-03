@@ -2,6 +2,7 @@ import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import { StatusBar } from "expo-status-bar";
 import styles from "../styling";
+import { Text, View } from "react-native";
 
 const CustomHeader = () => {
   const [fontsLoaded] = useFonts({
@@ -13,7 +14,7 @@ const CustomHeader = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <View>
       <Text style={styles.headerStyle}>Rendezvous</Text>
       <Text style={styles.textStyle}>
         Home to dating ideas across the globe!

@@ -1,12 +1,15 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Text, TextInput, StyleSheet, Button, View } from "react-native";
+import { Text, TextInput, Button, View } from "react-native";
+import CustomHeader from "./Header";
+import styles from "../styling";
 
 const CreateAccountScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.headerStyle}>Create Account</Text>
-      <TextInput style={styles.inputStyle} placeholder="Name"></TextInput>
+    <View>
+      <CustomHeader />
+      <Text>Create Account</Text>
+      <TextInput style={styles.caInputStyle} placeholder="Name"></TextInput>
       <TextInput
         style={styles.inputStyle}
         placeholder="Email"
