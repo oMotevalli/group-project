@@ -111,6 +111,7 @@ export default function App() {
         <Stack.Screen name="Login" component={WelcomeLogin} />
         <Stack.Screen name="Create" component={CreateAccountScreen} />
         <Stack.Screen name="NavTabs" component={NavTabs} />
+        <Stack.Screen name="EventDetails" component={EventDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
