@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import styles from "../styling";
 import { Text, View, TextInput, TouchableOpacity } from "react-native";
-import CustomHeader from "./Header";
+import CustomHeader from "../src/screens/Header";
 
 const WelcomeLogin = () => {
   return (

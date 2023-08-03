@@ -17,14 +17,14 @@ const NavPanel = () => {
       <Tab.Navigator
         screenOptions={{
           tabBarActiveTintColor: "white",
-          tabBarInactiveTintColor: "black",
+          tabBarInactiveTintColor: "#4ea8de",
           tabBarStyle: {
-            backgroundColor: "#ffafcc",
+            backgroundColor: "#a2d2ff",
             height: "8%",
             paddingBottom: 10,
             paddingTop: 10,
-            borderTopColor: "black",
-            borderTopWidth: 2,
+            borderTopColor: "#a5a5a5",
+            // borderTopWidth: 1,
           },
         }}
       >
@@ -36,7 +36,7 @@ const NavPanel = () => {
               <Feather
                 name={"home"}
                 size={25}
-                color={focused ? "white" : "black"}
+                color={focused ? "white" : "#4ea8de"}
               />
             ),
           }}
@@ -49,7 +49,7 @@ const NavPanel = () => {
               <Feather
                 name={"search"}
                 size={25}
-                color={focused ? "white" : "black"}
+                color={focused ? "white" : "#4ea8de"}
               />
             ),
           }}
@@ -62,7 +62,7 @@ const NavPanel = () => {
               <Feather
                 name={"plus"}
                 size={25}
-                color={focused ? "white" : "black"}
+                color={focused ? "white" : "#4ea8de"}
               />
             ),
           }}
@@ -75,7 +75,7 @@ const NavPanel = () => {
               <Feather
                 name={"heart"}
                 size={25}
-                color={focused ? "white" : "black"}
+                color={focused ? "white" : "#4ea8de"}
               />
             ),
           }}
@@ -88,7 +88,7 @@ const NavPanel = () => {
               <Feather
                 name={"user"}
                 size={25}
-                color={focused ? "white" : "black"}
+                color={focused ? "white" : "#4ea8de"}
               />
             ),
           }}

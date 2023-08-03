@@ -1,12 +1,12 @@
 import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import { StatusBar } from "expo-status-bar";
-import styles from "../styling";
+import styles from "../../styling";
 import { Text, View } from "react-native";
 
 const CustomHeader = () => {
   const [fontsLoaded] = useFonts({
-    PinkyStyle: require("../assets/fonts/PinkyStyle.ttf"),
+    PinkyStyle: require("../../assets/fonts/PinkyStyle.ttf"),
   });
 
   if (!fontsLoaded) {

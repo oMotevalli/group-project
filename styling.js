@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     margin: 10,
-    padding: 10,
+    padding: 5,
     width: "80%",
     backgroundColor: "#fff",
     borderColor: "#ced4da",
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   loginButton: {
+    marginTop: 10,
     elevation: 8,
     padding: 8,
     backgroundColor: "#a2d2ff",
