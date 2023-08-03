@@ -1,12 +1,12 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { Nav } from "../../App";
+import { NavTabs } from "../../App";
 
 const Home = () => {
   return (
     <View>
       <Text>Hello</Text>
-      <Nav />
+      <NavPanel />
     </View>
   );
 };

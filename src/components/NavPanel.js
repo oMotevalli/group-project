@@ -13,7 +13,7 @@ const Tab = createBottomTabNavigator();
 
 const NavPanel = () => {
   return (
-    <View>
+    <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
           tabBarActiveTintColor: "white",
@@ -95,7 +95,7 @@ const NavPanel = () => {
         ></Tab.Screen>
       </Tab.Navigator>
       <StatusBar style="auto" />
-    </View>
+    </NavigationContainer>
   );
 };
 
