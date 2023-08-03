@@ -5,9 +5,9 @@ import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Feather } from "@expo/vector-icons";
 
 // SCREENS //
-// import NavPanel from "./src/components/NavPanel";
 import WelcomeLogin from "./Components/WelcomeLogin";
 import CreateAccountScreen from "./src/screens/CreateAccount";
 import Discover from "./src/screens/Discover";
@@ -19,19 +19,16 @@ import Faves from "./src/screens/Faves";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-export function Nav() {
+export const NavTabs = () => {
   return (
     <Tab.Navigator
+      initialRouteName="Home"
       screenOptions={{
+        headerShown: false,
         tabBarActiveTintColor: "white",
         tabBarInactiveTintColor: "#4ea8de",
         tabBarStyle: {
           backgroundColor: "#a2d2ff",
-          height: "8%",
-          paddingBottom: 10,
-          paddingTop: 10,
-          borderTopColor: "#a5a5a5",
-          // borderTopWidth: 1,
         },
       }}
     >
@@ -47,7 +44,7 @@ export function Nav() {
             />
           ),
         }}
-      ></Tab.Screen>
+      />
       <Tab.Screen
         name={"Discover"}
         component={Discover}
@@ -60,7 +57,7 @@ export function Nav() {
             />
           ),
         }}
-      ></Tab.Screen>
+      />
       <Tab.Screen
         name={"Add Date"}
         component={AddDate}
@@ -73,7 +70,7 @@ export function Nav() {
             />
           ),
         }}
-      ></Tab.Screen>
+      />
       <Tab.Screen
         name={"Faves"}
         component={Faves}
@@ -86,7 +83,7 @@ export function Nav() {
             />
           ),
         }}
-      ></Tab.Screen>
+      />
       <Tab.Screen
         name={"Profile"}
         component={Profile}
@@ -99,19 +96,18 @@ export function Nav() {
             />
           ),
         }}
-      ></Tab.Screen>
+      />
     </Tab.Navigator>
   );
-}
+};
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Login" component={WelcomeLogin} />
         <Stack.Screen name="Create" component={CreateAccountScreen} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Nav" component={Nav} />
+        <Stack.Screen name="NavTabs" component={NavTabs} />
       </Stack.Navigator>
     </NavigationContainer>
   );

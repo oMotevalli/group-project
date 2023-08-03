@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     color: "#fff",
-    fontFamily: "helvetica",
+    // fontFamily: "helvetica",
     fontSize: 16,
     textAlign: "center",
   },
