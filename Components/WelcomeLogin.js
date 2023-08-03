@@ -1,24 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import styles from "../styling";
-import { Text, View, TextInput, Button, TouchableOpacity } from "react-native";
-import { useFonts } from "expo-font";
-import AppLoading from "expo-app-loading";
+import { Text, View, TextInput, TouchableOpacity } from "react-native";
+import CustomHeader from "./Header";
 
 const WelcomeLogin = () => {
-  const [fontsLoaded] = useFonts({
-    PinkyStyle: require("../assets/fonts/PinkyStyle.ttf"),
-  });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
-
   return (
     <View style={styles.container}>
-      <Text style={styles.headerStyle}>Rendezvous</Text>
-      <Text style={styles.textStyle}>
-        Home to dating ideas across the globe!
-      </Text>
+      <CustomHeader />
       <View style={styles.inputContainer}>
         <TextInput style={styles.inputStyle} placeholder="Username"></TextInput>
         <TextInput style={styles.inputStyle} placeholder="Password"></TextInput>
@@ -29,6 +17,7 @@ const WelcomeLogin = () => {
         </TouchableOpacity>
       </View>
       <Text style={styles.noAccountText}>Don't have an account?</Text>
+      <Text style={styles.signUpHereText}>Sign up here!</Text>
       <StatusBar style="auto" />
     </View>
   );
