@@ -3,7 +3,7 @@ import styles from "../styling";
 import { Text, View, TextInput, TouchableOpacity } from "react-native";
 import CustomHeader from "../src/screens/Header";
 
-const WelcomeLogin = () => {
+const WelcomeLogin = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <CustomHeader />
@@ -12,12 +12,18 @@ const WelcomeLogin = () => {
         <TextInput style={styles.inputStyle} placeholder="Password"></TextInput>
       </View>
       <View style={styles.loginButtonContainer}>
-        <TouchableOpacity style={styles.loginButton}>
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={() => navigation.navigate("Home")}
+        >
           <Text style={styles.loginButtonText}>Login</Text>
         </TouchableOpacity>
       </View>
       <Text style={styles.noAccountText}>Don't have an account?</Text>
-      <Text style={styles.signUpHereText}>Sign up here!</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("Create")}>
+        <Text style={styles.signUpHereText}>Sign up here!</Text>
+      </TouchableOpacity>
+
       <StatusBar style="auto" />
     </View>
   );

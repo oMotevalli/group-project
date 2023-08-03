@@ -1,4 +1,3 @@
-import { cloneElement } from "react";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -87,6 +86,20 @@ const styles = StyleSheet.create({
     width: "80%",
     backgroundColor: "#fff",
     borderColor: "#ced4da",
+    borderWidth: 1,
+    borderRadius: 10,
+  },
+  createAccountStyling: {
+    alignSelf: "center",
+    alignItems: "center",
+    height: 460,
+    backgroundColor: "white",
+    margin: 20,
+    marginTop: 50,
+    padding: 10,
+    width: "80%",
+    backgroundColor: "#cdb4db",
+    borderColor: "#fff",
     borderWidth: 1,
     borderRadius: 10,
   },

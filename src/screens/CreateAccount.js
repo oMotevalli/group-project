@@ -4,28 +4,13 @@ import { Text, TextInput, Button, View, TouchableOpacity } from "react-native";
 import CustomHeader from "./Header";
 import styles from "../../styling";
 
-const CreateAccountScreen = () => {
+const CreateAccountScreen = ({ navigation }) => {
   return (
-    <View>
+    <View style={styles.container}>
       <View>
         <CustomHeader />
       </View>
-      <View
-        style={{
-          alignSelf: "center",
-          alignItems: "center",
-          height: 460,
-          backgroundColor: "white",
-          margin: 20,
-          marginTop: 50,
-          padding: 10,
-          width: "80%",
-          backgroundColor: "#cdb4db",
-          borderColor: "#fff",
-          borderWidth: 1,
-          borderRadius: 10,
-        }}
-      >
+      <View style={styles.createAccountStyling}>
         <Text
           style={{
             color: "#fff",
@@ -49,7 +34,9 @@ const CreateAccountScreen = () => {
           </TouchableOpacity>
         </View>
         <Text style={styles.noAccountText}>Already got an account?</Text>
-        <Text style={styles.signUpHereText}>Login here!</Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+          <Text style={styles.signUpHereText}>Login here!</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
