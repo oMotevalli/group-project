@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   headerStyle: {
-    fontSize: 60,
+    fontSize: 70,
     color: "#fff",
     fontFamily: "PinkyStyle",
     textAlign: "center",
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   textStyle: {
     color: "#fff",
     fontFamily: "helvetica",
-    fontSize: 14,
+    fontSize: 16,
     textAlign: "center",
   },
   inputContainer: {
@@ -29,6 +29,9 @@ const styles = StyleSheet.create({
     padding: 10,
     width: "80%",
     backgroundColor: "#fff",
+    borderColor: "#ced4da",
+    borderWidth: 1,
+    borderRadius: 10,
   },
   loginButtonContainer: {
     alignItems: "center",
@@ -46,12 +49,21 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#fff",
     fontWeight: "bold",
+    fontSize: 16,
   },
   noAccountText: {
     color: "#fff",
     textAlign: "center",
     padding: 10,
-    fontSize: 12,
+    fontSize: 16,
+  },
+  signUpHereText: {
+    color: "#fff",
+    textAlign: "center",
+    padding: 0,
+    fontSize: 14,
+    margin: -8,
+    textDecorationLine: "underline",
   },
 });
 
