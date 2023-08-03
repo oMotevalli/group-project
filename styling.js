@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   headerStyle: {
-    fontSize: 60,
+    fontSize: 80,
     color: "#fff",
     fontFamily: "PinkyStyle",
     textAlign: "center",
