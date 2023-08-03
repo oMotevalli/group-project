@@ -65,6 +65,29 @@ const styles = StyleSheet.create({
     margin: -8,
     textDecorationLine: "underline",
   },
+  signUpStyle: {
+    padding: 20,
+  },
+  createAccountContainer: {
+    padding: 0,
+    flex: 1,
+    backgroundColor: "#fab1cc",
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 0.5,
+    borderColor: "black",
+    margin: 40,
+    borderRadius: 30,
+  },
+  caInputStyle: {
+    margin: 20,
+    padding: 10,
+    width: "80%",
+    backgroundColor: "#fff",
+    borderColor: "#ced4da",
+    borderWidth: 1,
+    borderRadius: 10,
+  },
 });
 
 export default styles;
