@@ -1,3 +1,4 @@
+import { cloneElement } from "react";
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
   },
   caInputStyle: {
-    margin: 20,
+    margin: 10,
     padding: 10,
     width: "80%",
     backgroundColor: "#fff",

@@ -11,17 +11,17 @@ const CreateAccountScreen = () => {
       <Text>Create Account</Text>
       <TextInput style={styles.caInputStyle} placeholder="Name"></TextInput>
       <TextInput
-        style={styles.inputStyle}
+        style={styles.caInputStyle}
         placeholder="Email"
         keyboardType="email-address"
       ></TextInput>
       <TextInput
-        style={styles.inputStyle}
+        style={styles.caInputStyle}
         placeholder="Password"
         secureTextEntry={true}
       ></TextInput>
       <TextInput
-        style={styles.inputStyle}
+        style={styles.caInputStyle}
         placeholder="Confirm Password"
         secureTextEntry={true}
       ></TextInput>
