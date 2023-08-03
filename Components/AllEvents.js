@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const Home = ({ navigation }) => {
+const AllEvents = ({ navigation }) => {
   const [events, setListOfEvents] = useState();
   useEffect(() => {
     axios
@@ -68,4 +68,4 @@ const Home = ({ navigation }) => {
   );
 };
 
-export default Home;
+export default AllEvents;

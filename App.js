@@ -9,10 +9,7 @@ import { Feather } from "@expo/vector-icons";
 
 // SCREENS //
 import WelcomeLogin from "./Components/WelcomeLogin";
-import BottomNavigation from "./Components/BottomNavigation";
 import AllEvents from "./Components/AllEvents";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import EventDetails from "./Components/EventDetails";
 
 import CreateAccountScreen from "./src/screens/CreateAccount";
@@ -28,7 +25,7 @@ const Tab = createBottomTabNavigator();
 export const NavTabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="AllEvents"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: "white",
@@ -40,7 +37,7 @@ export const NavTabs = () => {
     >
       <Tab.Screen
         name={"Home"}
-        component={Home}
+        component={AllEvents}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
@@ -114,8 +111,6 @@ export default function App() {
         <Stack.Screen name="Login" component={WelcomeLogin} />
         <Stack.Screen name="Create" component={CreateAccountScreen} />
         <Stack.Screen name="NavTabs" component={NavTabs} />
-        <Stack.Screen name="AllEvents" component={AllEvents} />
-        <Stack.Screen name="EventDetails" component={EventDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
