@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import CustomHeader from "../src/screens/Header";
 
 const AllEvents = ({ navigation }) => {
   const [events, setListOfEvents] = useState();
@@ -26,30 +27,34 @@ const AllEvents = ({ navigation }) => {
   };
   const renderItem = ({ item }) => {
     return (
-      <TouchableOpacity onPress={() => handlingPress(item)}>
-        <View
-          style={{
-            alignItems: "center",
-            borderWidth: 1,
-            borderRadius: 10,
-            backgroundColor: "#ffc1cc",
-            padding: 10,
-          }}
-        >
-          <Text style={{ marginBottom: 10, fontSize: 15, textAlign: "center" }}>
-            {item.title}
-          </Text>
-          <Image
-            style={{ height: 200, width: 250 }}
-            source={{
-              uri: item.image_url,
+      <View>
+        <TouchableOpacity onPress={() => handlingPress(item)}>
+          <View
+            style={{
+              alignItems: "center",
+              borderWidth: 1,
+              borderRadius: 10,
+              backgroundColor: "#ffc1cc",
+              padding: 10,
             }}
-          />
-          <Text>
-            Hours: {item.opening_time} - {item.closing_time}
-          </Text>
-        </View>
-      </TouchableOpacity>
+          >
+            <Text
+              style={{ marginBottom: 10, fontSize: 15, textAlign: "center" }}
+            >
+              {item.title}
+            </Text>
+            <Image
+              style={{ height: 200, width: 250 }}
+              source={{
+                uri: item.image_url,
+              }}
+            />
+            <Text>
+              Hours: {item.opening_time} - {item.closing_time}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     );
   };
 
@@ -58,7 +63,8 @@ const AllEvents = ({ navigation }) => {
   };
   return (
     <SafeAreaView style={{ alignItems: "center", backgroundColor: "#ffafcc" }}>
-      <View style={{ alignItems: "center", marginBottom: 20 }}></View>
+      <CustomHeader />
+      <View style={{ alignItems: "center", marginBottom: 10 }}></View>
       <FlatList
         data={events}
         renderItem={renderItem}
