@@ -7,24 +7,35 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import CustomHeader from "../src/screens/Header";
+import styles from "../styling";
 
 const AllEvents = ({ navigation }) => {
+  const [isLoading, setIsLoading] = useState(true);
   const [events, setListOfEvents] = useState();
   useEffect(() => {
     axios
       .get("https://rendezvous-backend.onrender.com/api/user_ideas")
       .then(({ data }) => {
         setListOfEvents(data.ideas);
+        setIsLoading(false);
       });
   }, []);
 
   const handlingPress = (item) => {
     navigation.navigate("EventDetails", { event: item });
   };
+  if (isLoading) {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size="extra-large" color="white" />
+      </View>
+    );
+  }
   const renderItem = ({ item }) => {
     return (
       <View>

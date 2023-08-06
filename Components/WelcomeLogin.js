@@ -5,7 +5,7 @@ import CustomHeader from "../src/screens/Header";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const WelcomeLogin = ({ navigation }) => {
+const WelcomeLogin = ({ navigation, setUserId }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [users, setUsers] = useState();
@@ -21,6 +21,8 @@ const WelcomeLogin = ({ navigation }) => {
   const handleLogin = () => {
     users.find((user) => {
       if (user.username === username && user.password === password) {
+        setUserId(user._id);
+
         setIsNotCorrect(false);
         navigation.navigate("NavTabs");
       } else {
@@ -28,6 +30,7 @@ const WelcomeLogin = ({ navigation }) => {
       }
     });
   };
+
   return (
     <View style={styles.container}>
       <CustomHeader />

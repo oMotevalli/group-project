@@ -1,5 +1,6 @@
 // SET UP //
-import { StatusBar } from "expo-status-bar";
+// import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
 import styles from "./styling";
 import { View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -32,6 +33,9 @@ export const NavTabs = () => {
         tabBarInactiveTintColor: "#4ea8de",
         tabBarStyle: {
           backgroundColor: "#a2d2ff",
+          paddingTop: 5,
+          paddingBottom: 5,
+          height: 60,
         },
       }}
     >
@@ -105,11 +109,17 @@ export const NavTabs = () => {
 };
 
 export default function App() {
+  const [userId, setUserId] = useState("");
+  console.log(userId, "user id app");
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Login" component={WelcomeLogin} />
-        <Stack.Screen name="Create" component={CreateAccountScreen} />
+        <Stack.Screen
+          name="Create"
+          component={CreateAccountScreen}
+          setUserId={setUserId}
+        />
         <Stack.Screen name="NavTabs" component={NavTabs} />
         <Stack.Screen name="EventDetails" component={EventDetails} />
       </Stack.Navigator>

@@ -4,6 +4,23 @@ import CustomHeader from "./Header";
 import styles from "../../styling";
 
 const Profile = ({ navigation }) => {
+  // useEffect(() => {
+  //   axios
+  //     .get("https://rendezvous-backend.onrender.com/api/users")
+  //     .then(({ data }) => {
+  //       setUsers(data.users);
+  //     });
+  // }, [refreshDb]);
+  // const handleLogin = () => {
+  //   users.find((user) => {
+  //     if (user.username === username && user.password === password) {
+  //       setIsNotCorrect(false);
+  //       navigation.navigate("NavTabs");
+  //     } else {
+  //       setIsNotCorrect(true);
+  //     }
+  //   });
+  // };
   return (
     <View style={stylesInLine.pageContainer}>
       <CustomHeader />
