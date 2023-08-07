@@ -21,7 +21,7 @@ const WelcomeLogin = ({ navigation, setUserId }) => {
   const handleLogin = () => {
     users.find((user) => {
       if (user.username === username && user.password === password) {
-        setUserId(user._id);
+        //setUserId(user._id);
 
         setIsNotCorrect(false);
         navigation.navigate("NavTabs");

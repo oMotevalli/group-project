@@ -24,6 +24,8 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export const NavTabs = () => {
+  const [refreshEvents, setRefreshEvents] = useState(false);
+
   return (
     <Tab.Navigator
       initialRouteName="AllEvents"
@@ -42,6 +44,7 @@ export const NavTabs = () => {
       <Tab.Screen
         name={"Home"}
         component={AllEvents}
+        initialParams={{ refreshEvents: refreshEvents }}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
@@ -68,6 +71,9 @@ export const NavTabs = () => {
       <Tab.Screen
         name={"Add Date"}
         component={AddDate}
+        initialParams={{
+          setRefreshEvents: setRefreshEvents,
+        }}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather

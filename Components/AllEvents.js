@@ -14,7 +14,8 @@ import { useState, useEffect } from "react";
 import CustomHeader from "../src/screens/Header";
 import styles from "../styling";
 
-const AllEvents = ({ navigation }) => {
+const AllEvents = ({ navigation, route }) => {
+  const refresh = route.params.refreshEvents;
   const [isLoading, setIsLoading] = useState(true);
   const [events, setListOfEvents] = useState();
   useEffect(() => {
@@ -24,7 +25,7 @@ const AllEvents = ({ navigation }) => {
         setListOfEvents(data.ideas);
         setIsLoading(false);
       });
-  }, []);
+  }, [refresh]);
 
   const handlingPress = (item) => {
     navigation.navigate("EventDetails", { event: item });
@@ -36,6 +37,7 @@ const AllEvents = ({ navigation }) => {
       </View>
     );
   }
+
   const renderItem = ({ item }) => {
     return (
       <View>
@@ -45,7 +47,8 @@ const AllEvents = ({ navigation }) => {
               alignItems: "center",
               borderWidth: 1,
               borderRadius: 10,
-              backgroundColor: "#ffc1cc",
+              borderColor: "#fff",
+              backgroundColor: "#cdb4db",
               padding: 10,
             }}
           >
@@ -60,9 +63,7 @@ const AllEvents = ({ navigation }) => {
                 uri: item.image_url,
               }}
             />
-            <Text>
-              Hours: {item.opening_time} - {item.closing_time}
-            </Text>
+            <Text>Price: from £{item.price}</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -70,12 +71,12 @@ const AllEvents = ({ navigation }) => {
   };
 
   const myItemSeparator = () => {
-    return <View style={{ height: 10 }} />;
+    return <View style={{ height: 5, width: 350 }} />;
   };
   return (
     <SafeAreaView style={{ alignItems: "center", backgroundColor: "#ffafcc" }}>
       <CustomHeader />
-      <View style={{ alignItems: "center", marginBottom: 10 }}></View>
+      <View style={{ alignItems: "center" }}></View>
       <FlatList
         data={events}
         renderItem={renderItem}
