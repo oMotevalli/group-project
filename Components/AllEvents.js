@@ -13,6 +13,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import CustomHeader from "../src/screens/Header";
 import styles from "../styling";
+import Carousel from "react-native-snap-carousel";
 
 const AllEvents = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,6 +48,9 @@ const AllEvents = ({ navigation }) => {
               borderRadius: 10,
               backgroundColor: "#ffc1cc",
               padding: 10,
+              height: 500,
+              marginLeft: 10,
+              marginRight: 10,
             }}
           >
             <Text
@@ -70,19 +74,38 @@ const AllEvents = ({ navigation }) => {
   };
 
   const myItemSeparator = () => {
-    return <View style={{ height: 10 }} />;
+    return <View style={{ height: 100 }} />;
   };
   return (
     <SafeAreaView style={{ alignItems: "center", backgroundColor: "#ffafcc" }}>
-      <CustomHeader />
-      <View style={{ alignItems: "center", marginBottom: 10 }}></View>
-      <FlatList
-        data={events}
-        renderItem={renderItem}
-        ItemSeparatorComponent={myItemSeparator}
-      />
+      <View style={stylesInLine.pageContainer}>
+        <CustomHeader style={{ marginTop: 130 }} />
+        <View style={{ alignItems: "center", marginBottom: 10, marginTop: 50 }}>
+          <Carousel
+            data={events}
+            renderItem={renderItem}
+            ItemSeparatorComponent={myItemSeparator}
+            itemWidth={300}
+            sliderWidth={300}
+            autoplay
+            autoplayInterval={12000}
+            inactiveSlideScale={1}
+            inactiveSlideOpacity={1}
+            snapToAlignment="start"
+            snapToInterval={300}
+          />
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
+
+const stylesInLine = StyleSheet.create({
+  pageContainer: {
+    backgroundColor: "#ffafcc",
+    height: "100%",
+    paddingTop: 40,
+  },
+});
 
 export default AllEvents;
