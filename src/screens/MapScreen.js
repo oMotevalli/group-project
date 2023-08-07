@@ -10,15 +10,9 @@ const MapScreen = () => {
     latitude: 53.480759,
     longitudeDelta: 0.04,
     latitudeDelta: 0.04,
-    // longitude: -122.4324,
-    // latitude: 37.78825,
-    // longitudeDelta: 0.04,
-    // latitudeDelta: 0.09,
   });
   const [pin, setPin] = useState({ longitude: -122.4324, latitude: 37.78825 });
   const [events, setEvents] = useState([]);
-
-  //   probably need function to change the region
 
   //API CALL
   const getEvents = () => {
@@ -39,7 +33,7 @@ const MapScreen = () => {
       <MapView style={styles.map} region={region} provider="google">
         {events.map((event) => (
           <Marker
-            key={event.id}
+            key={event._id}
             coordinate={{
               latitude: event.latitude,
               longitude: event.longitude,
@@ -60,11 +54,6 @@ const MapScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  header: {
-    fontSize: 50,
-    color: "#fff",
-    fontFamily: "sans-serif-thin",
-  },
   container: {
     backgroundColor: "#ffafcc",
     flex: 1,
@@ -85,28 +74,3 @@ const styles = StyleSheet.create({
 });
 
 export default MapScreen;
-
-{
-  /* <Marker
-coordinate={pin}
-  pinColor={"blue"}
-  draggable={true}
-  onDragStart={(e) => {
-    setPin({
-      latitude: e.nativeEvent.coordinate.latitude,
-      longitude: e.nativeEvent.coordinate.longitude,
-    });
-  }}
-  onDragEnd={(e) => {
-    console.log("Drag end:", e.nativeEvent.coordinates);
-  }}
-> */
-}
-{
-  /* <Callout>
-        <Text>You</Text>
-      </Callout>*/
-}
-{
-  /* </Marker> */
-}
