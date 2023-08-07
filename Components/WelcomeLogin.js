@@ -4,13 +4,15 @@ import { Text, View, TextInput, TouchableOpacity } from "react-native";
 import CustomHeader from "../src/screens/Header";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useUserContext } from "../UserContext";
 
-const WelcomeLogin = ({ navigation, setUserId }) => {
+const WelcomeLogin = ({ navigation }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [users, setUsers] = useState();
   const [isNotCorrect, setIsNotCorrect] = useState(false);
   const [refreshDb, setRefreshDb] = useState(false);
+  const { setUser } = useUserContext();
   useEffect(() => {
     axios
       .get("https://rendezvous-backend.onrender.com/api/users")
@@ -21,8 +23,12 @@ const WelcomeLogin = ({ navigation, setUserId }) => {
   const handleLogin = () => {
     users.find((user) => {
       if (user.username === username && user.password === password) {
-        setUserId(user._id);
-
+        setUser({
+          userId: user._id,
+          firstname: user.first_name,
+          username: user.username,
+          email: user.email,
+        });
         setIsNotCorrect(false);
         navigation.navigate("NavTabs");
       } else {

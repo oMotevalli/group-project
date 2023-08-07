@@ -3,10 +3,11 @@
 import { useState } from "react";
 import styles from "./styling";
 import { View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useRoute } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
+import { UserProvider } from "./UserContext";
 
 // SCREENS //
 import WelcomeLogin from "./Components/WelcomeLogin";
@@ -24,6 +25,9 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export const NavTabs = () => {
+  // const route = useRoute();
+  // const { userId } = route.params;
+
   return (
     <Tab.Navigator
       initialRouteName="AllEvents"
@@ -109,20 +113,17 @@ export const NavTabs = () => {
 };
 
 export default function App() {
-  const [userId, setUserId] = useState("");
-  console.log(userId, "user id app");
+  // const [userId, setUserId] = useState("");
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Login" component={WelcomeLogin} />
-        <Stack.Screen
-          name="Create"
-          component={CreateAccountScreen}
-          setUserId={setUserId}
-        />
-        <Stack.Screen name="NavTabs" component={NavTabs} />
-        <Stack.Screen name="EventDetails" component={EventDetails} />
-      </Stack.Navigator>
+      <UserProvider>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Login" component={WelcomeLogin} />
+          <Stack.Screen name="Create" component={CreateAccountScreen} />
+          <Stack.Screen name="NavTabs" component={NavTabs} />
+          <Stack.Screen name="EventDetails" component={EventDetails} />
+        </Stack.Navigator>
+      </UserProvider>
     </NavigationContainer>
   );
 }
