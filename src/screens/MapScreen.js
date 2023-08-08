@@ -4,29 +4,15 @@ import MapView from "react-native-maps";
 import { Marker, Callout } from "react-native-maps";
 import axios from "axios";
 
-const MapScreen = () => {
-  const [region, setRegion] = useState({
-    longitude: -2.242631,
-    latitude: 53.480759,
-    longitudeDelta: 0.04,
-    latitudeDelta: 0.04,
-  });
-  const [pin, setPin] = useState({ longitude: -122.4324, latitude: 37.78825 });
+const MapScreen = ({ results, region }) => {
   const [events, setEvents] = useState([]);
 
-  //API CALL
-  const getEvents = () => {
-    return axios
-      .get("https://rendezvous-backend.onrender.com/api/user_ideas")
-      .then((response) => {
-        console.log(response.data.ideas);
-        return response.data.ideas;
-      });
-  };
-
   useEffect(() => {
-    getEvents().then((data) => setEvents(data));
-  }, []);
+    if (results.length > 0) {
+      setEvents(results);
+    } else {
+    }
+  }, [results]);
 
   return (
     <View style={styles.container}>
