@@ -112,12 +112,16 @@ const AllEvents = ({ navigation, route }) => {
   return (
     <SafeAreaView style={{ alignItems: "center", backgroundColor: "#ffafcc" }}>
       <CustomHeader />
-      <View style={{}}>
+      <View style={{ height: "90%", width: "100%" }}>
         <FlatList
+          contentContainerStyle={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
           data={events}
           renderItem={renderItem}
           ItemSeparatorComponent={myItemSeparator}
-          numColumns={numColumns}
         />
       </View>
     </SafeAreaView>

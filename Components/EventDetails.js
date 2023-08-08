@@ -31,7 +31,7 @@ const EventDetails = ({ route, navigation }) => {
           <Image
             style={{
               height: 300,
-              width: "auto",
+              width: 350,
               marginHorizontal: 20,
               borderRadius: 10,
               borderWidth: 5,
@@ -41,6 +41,28 @@ const EventDetails = ({ route, navigation }) => {
               uri: event.image_url,
             }}
           />
+          <Image
+            style={{
+              tintColor: "#fff",
+              position: "absolute",
+              width: 25,
+              height: 25,
+              top: 375,
+              right: 75,
+            }}
+            source={require("../assets/heart5.png")}
+          ></Image>
+          <Image
+            style={{
+              tintColor: "#fff",
+              position: "absolute",
+              width: 25,
+              height: 25,
+              top: 375,
+              right: 40,
+            }}
+            source={require("../assets/share.png")}
+          ></Image>
           <View
             style={{
               flexDirection: "row",
@@ -68,6 +90,12 @@ const EventDetails = ({ route, navigation }) => {
             </Text>
             <Text style={{ fontSize: 10 }}>Prices from £{event.price}</Text>
           </View>
+        </View>
+        <View style={{ alignItems: "flex-end" }}>
+          <Image
+            style={{ width: 200, height: 200 }}
+            source={require("../assets/giphy.gif")}
+          ></Image>
         </View>
       </ScrollView>
     </SafeAreaView>
