@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const AddDate = ({ navigation, route }) => {
-  console.log(route);
   const setRefresh = route.params.setRefreshEvents;
 
   const [title, setTitle] = useState("");
