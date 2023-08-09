@@ -1,26 +1,30 @@
-import React from "react";
-import { Text, View, TouchableOpacity, StyleSheet, Image } from "react-native";
+import React, { useState } from "react";
+import axios from "axios";
+import {
+  TextInput,
+  Text,
+  View,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+} from "react-native";
 import CustomHeader from "./Header";
 import styles from "../../styling";
+import { useUserContext } from "../../UserContext";
 
 const Profile = ({ navigation }) => {
-  // useEffect(() => {
-  //   axios
-  //     .get("https://rendezvous-backend.onrender.com/api/users")
-  //     .then(({ data }) => {
-  //       setUsers(data.users);
-  //     });
-  // }, [refreshDb]);
-  // const handleLogin = () => {
-  //   users.find((user) => {
-  //     if (user.username === username && user.password === password) {
-  //       setIsNotCorrect(false);
-  //       navigation.navigate("NavTabs");
-  //     } else {
-  //       setIsNotCorrect(true);
-  //     }
-  //   });
-  // };
+  const { user } = useUserContext();
+  const [newPassword, setNewPassword] = useState("");
+  const { userId, firstname, username, email } = user;
+  console.log(firstname, "first<<<");
+
+  const updatePassword = ({ username }) => {
+    axios.patch(
+      `https://rendezvous-backend.onrender.com/api/users/${username}`,
+      { password: newPassword }
+    );
+    console.log("success!");
+  };
   return (
     <View style={stylesInLine.pageContainer}>
       <CustomHeader />
@@ -38,12 +42,19 @@ const Profile = ({ navigation }) => {
             }}
           />
         </View>
-        <Text>Name</Text>
-        <Text>Username</Text>
-        <Text>Email</Text>
-        <TouchableOpacity>
-          <Text>Update Password</Text>
-        </TouchableOpacity>
+        <Text>Username: {user.username}</Text>
+        <Text>Name: {user.firstname}</Text>
+        <Text>Email: {user.email}</Text>
+        <TextInput
+          placeholder="Enter new password"
+          style={styles.caInputStyle}
+          onChangeText={setNewPassword}
+        />
+        <View style={styles.loginButtonContainer}>
+          <TouchableOpacity style={styles.loginButton} onPress={updatePassword}>
+            <Text style={styles.loginButtonText}>Change Password</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       {/* these will all be props... */}
       <View style={styles.loginButtonContainer}>
