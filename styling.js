@@ -103,6 +103,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
   },
+  addDateIdeaContainer: {
+    alignSelf: "center",
+    alignItems: "center",
+    height: 550,
+    backgroundColor: "white",
+    margin: 20,
+    marginTop: 50,
+    padding: 10,
+    width: "80%",
+    backgroundColor: "#cdb4db",
+    borderColor: "#fff",
+    borderWidth: 1,
+    borderRadius: 10,
+  },
 });
 
 export default styles;

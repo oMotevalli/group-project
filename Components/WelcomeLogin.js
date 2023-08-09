@@ -23,6 +23,8 @@ const WelcomeLogin = ({ navigation }) => {
   const handleLogin = () => {
     users.find((user) => {
       if (user.username === username && user.password === password) {
+        //setUserId(user._id);
+
         setUser({
           userId: user._id,
           firstname: user.first_name,
