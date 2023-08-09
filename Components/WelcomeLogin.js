@@ -12,6 +12,7 @@ const WelcomeLogin = ({ navigation }) => {
   const [users, setUsers] = useState();
   const [isNotCorrect, setIsNotCorrect] = useState(false);
   const [refreshDb, setRefreshDb] = useState(false);
+  const [userFound, setUserFound] = useState(false);
   const { setUser } = useUserContext();
   useEffect(() => {
     axios
@@ -21,22 +22,19 @@ const WelcomeLogin = ({ navigation }) => {
       });
   }, [refreshDb]);
   const handleLogin = () => {
-    users.find((user) => {
-      if (user.username === username && user.password === password) {
-        //setUserId(user._id);
-
-        setUser({
-          userId: user._id,
-          firstname: user.first_name,
-          username: user.username,
-          email: user.email,
-        });
-        setIsNotCorrect(false);
-        navigation.navigate("NavTabs");
-      } else {
-        setIsNotCorrect(true);
+    let foundUser = false;
+    for (let i = 0; i < users.length; i++) {
+      if (users[i].username === username && users[i].password === password) {
+        foundUser = true;
       }
-    });
+    }
+    if (foundUser) {
+      setUserFound(true);
+      setIsNotCorrect(false);
+      navigation.navigate("NavTabs");
+    } else {
+      setIsNotCorrect(true);
+    }
   };
 
   return (
