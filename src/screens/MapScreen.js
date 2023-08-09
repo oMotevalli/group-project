@@ -4,7 +4,7 @@ import MapView from "react-native-maps";
 import { Marker, Callout } from "react-native-maps";
 import axios from "axios";
 
-const MapScreen = ({ results, region }) => {
+const MapScreen = ({ results, region, eventType }) => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {

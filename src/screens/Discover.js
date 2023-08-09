@@ -21,6 +21,9 @@ const Discover = () => {
     latitudeDelta: 11,
   });
 
+  // Filter
+  const [eventType, setEventType] = useState("");
+
   const handleSearch = () => {
     axios
       .get(
@@ -52,7 +55,21 @@ const Discover = () => {
           <Text style={styles.loginButtonText}>Search</Text>
         </TouchableOpacity>
       </View>
-      <MapScreen results={filteredResults} region={region} />
+      <View style={styles.filterContainer} onPress={() => setEventType("food")}>
+        <TouchableOpacity>
+          <Text>Food</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.filterContainer}>
+        <TouchableOpacity onPress={() => setEventType("music")}>
+          <Text>Music</Text>
+        </TouchableOpacity>
+      </View>
+      <MapScreen
+        results={filteredResults}
+        region={region}
+        eventType={eventType}
+      />
     </View>
   );
 };
@@ -62,6 +79,10 @@ const stylesInLine = StyleSheet.create({
     backgroundColor: "#ffafcc",
     height: "100%",
     paddingTop: 40,
+  },
+  filterContainer: {
+    borderColor: "black",
+    borderWidth: 1,
   },
 });
 
