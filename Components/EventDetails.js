@@ -10,8 +10,17 @@ import {
   ScrollView,
 } from "react-native";
 
+import MapView from "react-native-maps";
+import { Marker, Callout } from "react-native-maps";
 const EventDetails = ({ route, navigation }) => {
   const { event } = route.params;
+  const region = {
+    longitude: -3.18796,
+    latitude: 55.95659,
+    longitudeDelta: 0.04,
+    latitudeDelta: 0.04,
+    zoom: 13,
+  };
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#ffafcc" }}>
       <ScrollView>
@@ -97,9 +106,46 @@ const EventDetails = ({ route, navigation }) => {
             source={require("../assets/giphy.gif")}
           ></Image>
         </View>
+        <View style={styles.container}>
+          <MapView style={styles.map} region={region} provider="google">
+            <Marker
+              key={event._id}
+              coordinate={{
+                latitude: event.latitude,
+                longitude: event.longitude,
+              }}
+              title={event.name}
+            >
+              <Callout>
+                <View style={styles.calloutContainer}>
+                  <Text style={styles.calloutText}>{event.title}</Text>
+                  <Text>{event.address}</Text>
+                </View>
+              </Callout>
+            </Marker>
+          </MapView>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
 };
-
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#ffafcc",
+    flex: 1,
+  },
+  map: {
+    margin: 10,
+    width: 200,
+    height: 200,
+  },
+  // calloutContainer: {
+  //   width: 10,
+  //   height: 200,
+  // },
+  calloutText: {
+    fontWeight: "bold",
+    // padding: 100,
+  },
+});
 export default EventDetails;
