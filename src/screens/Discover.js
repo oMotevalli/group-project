@@ -15,11 +15,14 @@ const Discover = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
   const [region, setRegion] = useState({
-    longitude: -3.4433,
     latitude: 55.3618,
+    longitude: -3.4433,
     longitudeDelta: 11,
     latitudeDelta: 11,
   });
+
+  // Filter
+  const [eventType, setEventType] = useState("");
 
   const handleSearch = () => {
     axios
@@ -28,14 +31,33 @@ const Discover = () => {
       )
       .then((response) => {
         setFilteredResults(response.data);
-        setRegion({
-          longitude: response.data[0].longitude,
-          latitude: response.data[0].latitude,
-          longitudeDelta: 0.04,
-          latitudeDelta: 0.04,
-        });
+        console.log(searchTerm, "search term");
+        if (searchTerm === "london" || searchTerm === "London") {
+          setRegion({
+            latitude: 51.509865,
+            longitude: -0.118092,
+            longitudeDelta: 0.04,
+            latitudeDelta: 0.04,
+          });
+        } else if (searchTerm === "manchester" || searchTerm === "Manchester") {
+          setRegion({
+            latitude: 53.483959,
+            longitude: -2.244644,
+            longitudeDelta: 0.04,
+            latitudeDelta: 0.04,
+          });
+        } else if (searchTerm === "edinburgh" || searchTerm === "Edinburgh") {
+          setRegion({
+            latitude: 55.95206,
+            longitude: -3.19648,
+            longitudeDelta: 0.04,
+            latitudeDelta: 0.04,
+          });
+        }
+        setSearchTerm("");
       });
   };
+
   return (
     <View style={stylesInLine.pageContainer}>
       <CustomHeader />
@@ -52,7 +74,26 @@ const Discover = () => {
           <Text style={styles.loginButtonText}>Search</Text>
         </TouchableOpacity>
       </View>
-      <MapScreen results={filteredResults} region={region} />
+      <View style={styles.filterContainer}>
+        <TouchableOpacity onPress={() => setEventType("")}>
+          <Text>All Events</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.filterContainer}>
+        <TouchableOpacity onPress={() => setEventType("food")}>
+          <Text>Food</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.filterContainer}>
+        <TouchableOpacity onPress={() => setEventType("music")}>
+          <Text>Music</Text>
+        </TouchableOpacity>
+      </View>
+      <MapScreen
+        results={filteredResults}
+        region={region}
+        eventType={eventType}
+      />
     </View>
   );
 };
@@ -62,6 +103,10 @@ const stylesInLine = StyleSheet.create({
     backgroundColor: "#ffafcc",
     height: "100%",
     paddingTop: 40,
+  },
+  filterContainer: {
+    borderColor: "black",
+    borderWidth: 1,
   },
 });
 
