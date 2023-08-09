@@ -15,11 +15,11 @@ import { Marker, Callout } from "react-native-maps";
 const EventDetails = ({ route, navigation }) => {
   const { event } = route.params;
   const region = {
-    longitude: -3.18796,
-    latitude: 55.95659,
+    longitude: event.longitude,
+    latitude: event.latitude + 0.00055,
     longitudeDelta: 0.04,
     latitudeDelta: 0.04,
-    zoom: 13,
+    zoom: 1,
   };
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#ffafcc" }}>
@@ -100,14 +100,14 @@ const EventDetails = ({ route, navigation }) => {
             <Text style={{ fontSize: 10 }}>Prices from £{event.price}</Text>
           </View>
         </View>
-        <View style={{ alignItems: "flex-end" }}>
-          <Image
-            style={{ width: 200, height: 200 }}
-            source={require("../assets/giphy.gif")}
-          ></Image>
-        </View>
+
         <View style={styles.container}>
-          <MapView style={styles.map} region={region} provider="google">
+          <MapView
+            style={styles.map}
+            region={region}
+            provider="google"
+            minZoomLevel={16}
+          >
             <Marker
               key={event._id}
               coordinate={{
@@ -119,11 +119,23 @@ const EventDetails = ({ route, navigation }) => {
               <Callout>
                 <View style={styles.calloutContainer}>
                   <Text style={styles.calloutText}>{event.title}</Text>
-                  <Text>{event.address}</Text>
+                  <Text style={{ fontSize: 10 }}>{event.address}</Text>
                 </View>
               </Callout>
             </Marker>
           </MapView>
+        </View>
+        <View>
+          <Image
+            style={{
+              width: 150,
+              height: 150,
+              position: "absolute",
+              top: -345,
+              left: 220,
+            }}
+            source={require("../assets/giphy.gif")}
+          ></Image>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -132,18 +144,22 @@ const EventDetails = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#ffafcc",
-    flex: 1,
+    margin: 20,
+    position: "relative",
   },
   map: {
-    margin: 10,
-    width: 200,
-    height: 200,
+    width: 350,
+    height: 250,
   },
-  // calloutContainer: {
-  //   width: 10,
-  //   height: 200,
-  // },
+  calloutContainer: {
+    display: "flex",
+    width: 165,
+    height: "auto",
+    flexWrap: "wrap",
+    flexDirection: "row",
+  },
   calloutText: {
+    fontSize: 12,
     fontWeight: "bold",
     // padding: 100,
   },
