@@ -21,8 +21,6 @@ const Discover = () => {
     latitudeDelta: 11,
   });
 
-  console.log(searchTerm, "INITIAL SEARCH");
-
   const handleSearch = () => {
     axios
       .get(
