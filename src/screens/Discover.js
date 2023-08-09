@@ -46,6 +46,13 @@ const Discover = () => {
             longitudeDelta: 0.04,
             latitudeDelta: 0.04,
           });
+        } else if (searchTerm === "edinburgh" || searchTerm === "Edinburgh") {
+          setRegion({
+            latitude: 55.95206,
+            longitude: -3.19648,
+            longitudeDelta: 0.04,
+            latitudeDelta: 0.04,
+          });
         }
         setSearchTerm("");
       });
