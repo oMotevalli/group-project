@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Text, StyleSheet, View } from "react-native";
 import MapView from "react-native-maps";
 import { Marker, Callout } from "react-native-maps";
-import axios from "axios";
 
 const MapScreen = ({ results, region, eventType }) => {
   const [events, setEvents] = useState([]);
@@ -14,10 +13,13 @@ const MapScreen = ({ results, region, eventType }) => {
     }
   }, [results]);
 
+  const filteredEvents = events.filter(
+    (event) => eventType === "" || event.type === eventType
+  );
   return (
     <View style={styles.container}>
       <MapView style={styles.map} region={region} provider="google">
-        {events.map((event) => (
+        {filteredEvents.map((event) => (
           <Marker
             key={event._id}
             coordinate={{
