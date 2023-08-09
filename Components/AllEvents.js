@@ -14,17 +14,20 @@ import { useState, useEffect } from "react";
 import CustomHeader from "../src/screens/Header";
 import styles from "../styling";
 
-const AllEvents = ({ navigation }) => {
+const AllEvents = ({ navigation, route }) => {
+  const refresh = route.params.refreshEvents;
   const [isLoading, setIsLoading] = useState(true);
   const [events, setListOfEvents] = useState();
   useEffect(() => {
     axios
-      .get("https://rendezvous-backend.onrender.com/api/user_ideas")
+      .get(
+        "https://rendezvous-backend.onrender.com/api/user_ideas?sort_by=createdAt&order=desc"
+      )
       .then(({ data }) => {
         setListOfEvents(data.ideas);
         setIsLoading(false);
       });
-  }, []);
+  }, [refresh]);
 
   const handlingPress = (item) => {
     navigation.navigate("EventDetails", { event: item });
@@ -36,51 +39,91 @@ const AllEvents = ({ navigation }) => {
       </View>
     );
   }
+
   const renderItem = ({ item }) => {
+    let pounds = "";
+    if (item.price < 5) {
+      pounds = "£";
+    } else if (item.price < 15) {
+      pounds = "££";
+    } else if (item.price < 30) {
+      pounds = "£££";
+    } else {
+      pounds = "££££";
+    }
     return (
-      <View>
+      <View style={{ marginTop: 10 }}>
         <TouchableOpacity onPress={() => handlingPress(item)}>
           <View
             style={{
-              alignItems: "center",
+              alignItems: "flex-start",
+              justifyContent: "flex-start",
               borderWidth: 1,
               borderRadius: 10,
-              backgroundColor: "#ffc1cc",
+              borderColor: "#fff",
+              backgroundColor: "#cdb4db",
               padding: 10,
+              margin: 5,
+              width: 180,
+              height: "auto",
             }}
           >
-            <Text
-              style={{ marginBottom: 10, fontSize: 15, textAlign: "center" }}
-            >
-              {item.title}
-            </Text>
             <Image
-              style={{ height: 200, width: 250 }}
+              style={{ height: 100, width: 160, marginBottom: 10 }}
               source={{
                 uri: item.image_url,
               }}
             />
-            <Text>
-              Hours: {item.opening_time} - {item.closing_time}
-            </Text>
+
+            <View
+              style={{
+                flexDirection: "row",
+                gap: 3,
+              }}
+            >
+              <Image
+                style={{ height: 15, width: 12, tintColor: "white" }}
+                source={require("../assets/location_pin.png")}
+              ></Image>
+              <Text style={{ textAlign: "left" }}>{item.location}</Text>
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                gap: 3,
+                alignItems: "baseline",
+                flexWrap: "wrap",
+              }}
+            >
+              <Text style={{ marginBottom: 0, fontSize: 15 }}>
+                {item.title}
+              </Text>
+              <Text style={{ fontSize: 15, fontWeight: "600" }}>{pounds}</Text>
+            </View>
           </View>
         </TouchableOpacity>
       </View>
     );
   };
-
+  const numColumns = 2;
   const myItemSeparator = () => {
-    return <View style={{ height: 10 }} />;
+    return <View style={{ height: 0 }} />;
   };
   return (
     <SafeAreaView style={{ alignItems: "center", backgroundColor: "#ffafcc" }}>
       <CustomHeader />
-      <View style={{ alignItems: "center", marginBottom: 10 }}></View>
-      <FlatList
-        data={events}
-        renderItem={renderItem}
-        ItemSeparatorComponent={myItemSeparator}
-      />
+      <View style={{ height: "90%", width: "100%" }}>
+        <FlatList
+          contentContainerStyle={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+          data={events}
+          renderItem={renderItem}
+          ItemSeparatorComponent={myItemSeparator}
+        />
+      </View>
     </SafeAreaView>
   );
 };
