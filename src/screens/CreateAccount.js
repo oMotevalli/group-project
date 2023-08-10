@@ -15,9 +15,6 @@ import axios from "axios";
 
 const CreateAccountScreen = ({ navigation }) => {
   const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [age, setAge] = useState(null);
-  const [avatarUrl, setAvatarUrl] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,11 +30,8 @@ const CreateAccountScreen = ({ navigation }) => {
   };
 
   const body = {
-    first_name: firstName,
-    last_name: lastName,
-    age: Number(age),
+    full_name: firstName,
     username: username,
-    avatar: avatarUrl,
     email: email,
     password: password,
   };
@@ -87,30 +81,13 @@ const CreateAccountScreen = ({ navigation }) => {
           Create Account
         </Text>
         <TextInput
-          placeholder="First Name"
+          placeholder="Full Name"
           style={styles.inputStyle}
           onChangeText={(newText) => setFirstName(newText)}
           autoCapitalize="none"
           onFocus={() => setError(false)}
         ></TextInput>
-        <TextInput
-          placeholder="Last Name"
-          style={styles.inputStyle}
-          onChangeText={(newText) => setLastName(newText)}
-          autoCapitalize="none"
-        ></TextInput>
-        <TextInput
-          placeholder="Age"
-          style={styles.inputStyle}
-          onChangeText={(newText) => setAge(newText)}
-          keyboardType="number-pad"
-        ></TextInput>
-        <TextInput
-          placeholder="Avatar URL"
-          style={styles.inputStyle}
-          onChangeText={(newText) => setAvatarUrl(newText)}
-          autoCapitalize="none"
-        ></TextInput>
+
         <TextInput
           placeholder="Username"
           style={styles.inputStyle}
